@@ -1,35 +1,31 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { loginUser } from "../api/auth";
+import { registerUser } from "../api/auth";
 
-export default function Login() {
+export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  const handleSignup = async (e) => {
     e.preventDefault();
     try {
-      const response = await loginUser(email, password);
-      localStorage.setItem("token", response.token);
-      navigate("/dashboard");
+      const message = await registerUser(email, password);
+      alert(message);
+      navigate("/"); // Redirect to login after signup
     } catch (err) {
-      alert("Login failed: " + err.message);
+      alert("Signup failed: " + err.message);
     }
   };
 
   return (
     <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSignup}>
         <input value={email} onChange={e => setEmail(e.target.value)} placeholder="Email" />
         <input value={password} type="password" onChange={e => setPassword(e.target.value)} placeholder="Password" />
-        <button type="submit">Login</button>
+        <button type="submit">Register</button>
       </form>
-            {/* ✅ Link to Signup */}
-        <p>
-          Don’t have an account? <a href="/signup">Register here</a>
-        </p>
     </div>
   );
 }

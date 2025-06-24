@@ -1,4 +1,7 @@
 import Navbar from "../components/Navbar";
+import CurrencyRates from "../components/CurrencyRates";
+import StockPrices from "../components/StockPrices";
+import NewsFeed from "../components/NewsFeed";
 
 function DashboardPage() {
   return (
@@ -9,24 +12,22 @@ function DashboardPage() {
 
         <div className="row mt-4">
           <div className="col-md-4">
-            <div className="card p-3">
-              <h5>📈 Stocks</h5>
-              <p>Coming soon...</p>
+                  <div className="col-md-4">
+          <StockPrices />
+        </div>
+          </div>
+
+          <div className="col-md-4">
+        
+            <div className="col-md-4">
+              <CurrencyRates />
             </div>
           </div>
 
           <div className="col-md-4">
-            <div className="card p-3">
-              <h5>💱 Currency</h5>
-              <p>Coming soon...</p>
-            </div>
-          </div>
-
-          <div className="col-md-4">
-            <div className="card p-3">
-              <h5>📰 News</h5>
-              <p>Coming soon...</p>
-            </div>
+              <div className="col-md-4">
+                 <NewsFeed />
+              </div>
           </div>
         </div>
       </div>

@@ -4,11 +4,13 @@ import StockPrices from "../components/StockPrices";
 import NewsFeed from "../components/NewsFeed";
 import StockChart from "../components/StockChart";
 import CurrencyChart from "../components/CurrencyChart";
+import Portfolio from "../components/Portfolio";
 
 function DashboardPage() {
   return (
     <>
       <Navbar />
+<Portfolio />
       <div className="container mt-4">
         <h2 className="text-center">Welcome to the Dashboard</h2>
 

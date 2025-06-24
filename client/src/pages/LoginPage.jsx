@@ -12,6 +12,7 @@ export default function Login() {
     try {
       const response = await loginUser(email, password);
       localStorage.setItem("token", response.token);
+      localStorage.setItem("email", email); // ✅ Store email
       navigate("/dashboard");
     } catch (err) {
       alert("Login failed: " + err.message);

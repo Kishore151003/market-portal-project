@@ -1,12 +1,11 @@
 import { Link, useNavigate } from "react-router-dom";
-import { logout } from "../utils/auth";
 
 function Navbar() {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout(); // clears token from localStorage
-    navigate("/"); // redirect to login
+    localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
@@ -14,7 +13,7 @@ function Navbar() {
       <span className="navbar-brand mb-0 h1">Market Portal</span>
       <div>
         <Link to="/dashboard" className="btn btn-outline-light me-2">Dashboard</Link>
-        <button onClick={handleLogout} className="btn btn-outline-danger">Logout</button>
+        <button className="btn btn-outline-danger" onClick={handleLogout}>Logout</button>
       </div>
     </nav>
   );
